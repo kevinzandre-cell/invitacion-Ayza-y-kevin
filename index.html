@@ -197,8 +197,16 @@ function createPetal() {
 
 setInterval(createPetal, 300);
 </script>
+    <script>
+document.addEventListener("click", function activarMusica() {
+    const audio = document.getElementById("musica");
+    audio.play().catch(() => {});
+    document.removeEventListener("click", activarMusica);
+});
+</script>
 </body>
 </html>
+
 
 
 
