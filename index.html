@@ -155,9 +155,51 @@ setInterval(() => {
     }
 }, 1000);
 </script>
+<!-- 🌸 Pétalos cayendo -->
+<style>
+.petal {
+    position: fixed;
+    top: -10px;
+    font-size: 20px;
+    animation: fall linear infinite;
+    z-index: 9999;
+    pointer-events: none;
+}
 
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+
+<script>
+function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+    petal.innerHTML = "🌸";
+
+    petal.style.left = Math.random() * window.innerWidth + "px";
+    petal.style.animationDuration = (3 + Math.random() * 5) + "s";
+    petal.style.fontSize = (15 + Math.random() * 20) + "px";
+
+    document.body.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 8000);
+}
+
+setInterval(createPetal, 300);
+</script>
 </body>
 </html>
+
 
 
 
